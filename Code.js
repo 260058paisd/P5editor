@@ -2,16 +2,16 @@
 
 //This variable name is very important, this is the name of the car and it's feelings will be hurt if you call it anything else. Please to not hurt the car's feelings.
 let Shlungauhlobungus; //Car body sprite.
-let name //Text sprite.
-let other //Car body details sprite.
-let picker //Color Picker HTML object.
-let picker2 //Color Picker HTML object.
-let wheel //Wheel sprite.
-let slider //Slider HTML object.
-let currSpeed = 0 //The factor moved every frame by certain sprites.
-let pos = 0 //The distance road sprite has moved from x = 0.
-let deg = 0 //The degree a wheel has rotated from 0.
-let deg2 = 0 //The degree the other wheel has rotated from 0.
+let name; //Text sprite.
+let other; //Car body details sprite.
+let picker; //Color Picker HTML object.
+let picker2; //Color Picker HTML object.
+let wheel; //Wheel sprite.
+let slider; //Slider HTML object.
+let currSpeed; = 0 //The factor moved every frame by certain sprites.
+let pos; = 0 //The distance road sprite has moved from x = 0.
+let deg; = 0 //The degree a wheel has rotated from 0.
+let deg2; = 0 //The degree the other wheel has rotated from 0.
 
 // Load the image and create a p5.Image object.
 function preload() {
