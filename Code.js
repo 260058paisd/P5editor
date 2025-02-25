@@ -1,7 +1,7 @@
 //Initialize variables.
 
 //This variable name is very important, this is the name of the car and it's feelings will be hurt if you call it anything else. Please to not hurt the car's feelings.
-let Shlungauhlobungus //Car body sprite.
+let Shlungauhlobungus; //Car body sprite.
 let name //Text sprite.
 let other //Car body details sprite.
 let picker //Color Picker HTML object.
@@ -15,6 +15,10 @@ let deg2 = 0 //The degree the other wheel has rotated from 0.
 
 // Load the image and create a p5.Image object.
 function preload() {
+  
+  soundFormats("mp3")
+  
+  carNoise = loadSound('/assets/carNoise.mp3')
   
   //Load all parts of car as separate images for simplicity.
   Shlungauhlobungus = loadImage('/assets/Car.png');
@@ -108,6 +112,25 @@ function draw(){
   //Gradually scale speed to the value selected on the slider to simulate inertia.
   let targSpeed = slider.value()
   
+  //If car is accelerating.
+  if(currSpeed == 0 & targSpeed >= 1)
+  {
+    //Start playing noises.
+    carNoise.playMode('restart')
+    carNoise.loop(true)
+    carNoise.setVolume(0.5)
+    carNoise.play()
+  }
+  //If car is declerating.
+  if(currSpeed != 0 & targSpeed == 0)
+  {
+    //Stop playing noises.
+    carNoise.playMode('sustain')
+    carNoise.loop(false)
+    carNoise.setVolume(0.0, 1, 0)
+  }
+  
+  //Inertia simulation.
   if(currSpeed < targSpeed)
   {
     currSpeed += 1
@@ -151,4 +174,3 @@ function colorizeName()
     }
   }
 }
-
